@@ -55,8 +55,7 @@
 </section></section>
 <footer>ACMSSYS.DEVELOPER · IA aplicada · 2026</footer>
 <script>
-const GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbwOu8V8yEpO9z_tPuTE6WX0h77Iev5i-GPct4VBgxAhDe8oueVyFsz7s47GBxnbDdwcCQ/exec";
-const steps=[...document.querySelectorAll(".form-step")];let current=1;
+const GOOGLE_SCRIPT_URL="https://script.google.com/macros/s/AKfycbyybsgFItuV-fUdJeY8D6T1i43NJwC3WonsUa2VYfIBt9wfwI-HubY0vEv90MabJDGWxA/exec";
 function showStep(n){current=n;steps.forEach(s=>s.classList.toggle("active",+s.dataset.step===n));document.getElementById("progress").style.width=(n/3*100)+"%";document.getElementById("stepLabel").textContent=String(n).padStart(2,"0")+" / 03";window.scrollTo({top:document.querySelector(".panel").offsetTop-20,behavior:"smooth"})}
 document.querySelectorAll("[data-next]").forEach(b=>b.onclick=()=>{if(current===1){for(const id of ["name","phone","email"]){const el=document.getElementById(id);if(!el.value.trim()||!el.checkValidity()){el.reportValidity();return}}}showStep(+b.dataset.next)});
 document.querySelectorAll("[data-back]").forEach(b=>b.onclick=()=>showStep(+b.dataset.back));
