@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ACMSSYS IA — CRM</title><meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="crm.css">
+</head>
+<body>
+<section id="login" class="auth">
+  <div class="card auth-card">
+    <div class="logo">A</div><small>ACMSSYS IA</small><h1>Intelligence CRM</h1>
+    <p>Acesse seu painel para acompanhar seus leads.</p>
+    <form id="loginForm">
+      <label>E-mail<input id="email" type="email" required autocomplete="email"></label>
+      <label>Senha<input id="password" type="password" required autocomplete="current-password"></label>
+      <button>Entrar no CRM →</button>
+      <a href="#" id="reset">Esqueci minha senha</a>
+      <div id="error" class="error"></div>
+    </form>
+  </div>
+</section>
+
+<section id="app" class="app hidden">
+  <aside>
+    <div class="brand"><div class="logo sm">A</div><b>ACMSSYS</b></div>
+    <button class="nav active" data-view="dashboard">◈ Dashboard</button>
+    <button class="nav" data-view="leads">◎ Leads</button>
+    <div class="user"><span id="userEmail"></span><button id="logout">Sair</button></div>
+  </aside>
+  <main>
+    <header><div><small>ACMSSYS / CRM</small><h2 id="title">Dashboard</h2></div><button id="refresh" class="ghost">↻ Atualizar</button></header>
+
+    <div id="dashboard">
+      <div class="hero"><div><small>VISÃO GERAL</small><h3>Seu funil em tempo real.</h3><p>Monitore a entrada e evolução dos leads em um só lugar.</p></div><span>● SISTEMA ONLINE</span></div>
+      <div class="metrics">
+        <div class="metric"><small>Total de leads</small><strong id="total">0</strong><span>base completa</span></div>
+        <div class="metric"><small>Novos hoje</small><strong id="today">0</strong><span>entradas hoje</span></div>
+        <div class="metric"><small>Leads quentes</small><strong id="hot">0</strong><span>score ≥ 70</span></div>
+        <div class="metric"><small>Convertidos</small><strong id="converted">0</strong><span>status convertido</span></div>
+      </div>
+      <div class="section"><div><small>ATIVIDADE</small><h3>Leads recentes</h3></div><div id="recent" class="list"></div></div>
+    </div>
+
+    <div id="leads" class="hidden">
+      <div class="toolbar"><input id="search" placeholder="Buscar nome, e-mail ou WhatsApp..."><select id="filter"><option value="">Todos os status</option><option>Novo</option><option>Visualizado</option><option>Em contato</option><option>Qualificado</option><option>Convertido</option><option>Perdido</option></select></div>
+      <div class="table"><table><thead><tr><th>Lead</th><th>WhatsApp</th><th>Perfil</th><th>Score</th><th>Status</th><th>Entrada</th><th></th></tr></thead><tbody id="tbody"></tbody></table><div id="empty" class="empty">Nenhum lead encontrado.</div></div>
+    </div>
+  </main>
+</section>
+
+<div id="modal" class="modal hidden"><div class="modal-card"><button id="close" class="close">×</button><small>DETALHES DO LEAD</small><h2 id="dName">Lead</h2>
+<div class="details"><div><small>E-mail</small><b id="dEmail"></b></div><div><small>WhatsApp</small><b id="dPhone"></b></div><div><small>Perfil</small><b id="dProfile"></b></div><div><small>Objetivo</small><b id="dGoal"></b></div><div><small>Nível de IA</small><b id="dLevel"></b></div><div><small>Score</small><b id="dScore"></b></div></div>
+<p><small>DESAFIO</small><br><span id="dChallenge"></span></p><p><small>MENSAGEM</small><br><span id="dMessage"></span></p>
+<div class="edit"><label>Status<select id="dStatus"><option>Novo</option><option>Visualizado</option><option>Em contato</option><option>Qualificado</option><option>Convertido</option><option>Perdido</option></select></label><label>Score<input id="dScoreInput" type="number" min="0" max="100"></label><label>Observações<input id="dNotes" placeholder="Observação interna"></label></div>
+<button id="save">Salvar alterações</button></div></div>
+<script type="module" src="crm.js"></script>
+</body></html>
